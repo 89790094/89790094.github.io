@@ -34,10 +34,13 @@
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$python</span> -m tkinter -c <span class="string">'tkinter._test()'</span></span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
       <tags>
         <tag>pyenv</tag>
         <tag>tcl/tk</tag>
-        <tag>python3</tag>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
