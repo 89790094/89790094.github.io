@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
-<meta name="keywords" content="pyenv,tcl&#x2F;tk,python3">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Pyenv Python installation steps to get the latest tcl&#x2F;tk version on Mac OS 10.14.6 (Mojave)">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave&#x2F;index.html">
+  <meta name="description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
+<meta name="keywords" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;index.html">
 <meta property="og:site_name" content="灵猫日记">
-<meta property="og:description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
+<meta property="og:description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T08:57:12.372Z">
+<meta property="og:updated_time" content="2019-11-04T08:46:55.887Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/">
+<link rel="canonical" href="http://yoursite.com/categories/">
 
 
 <script id="page-configurations">
@@ -70,13 +70,14 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
-    isPage: false,
+    isPost: false,
+    isPage: true,
     isArchive: false
   };
 </script>
 
-  <title>Pyenv Python installation steps to get the latest tcl/tk version on Mac OS 10.14.6 (Mojave) | 灵猫日记</title>
+  <title>categories | 灵猫日记
+  </title>
   
 
 
@@ -204,112 +205,49 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
           <div class="content">
             
 
   <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="@liudong">
-      <meta itemprop="description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&ML Elasticsearch">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="灵猫日记">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Pyenv Python installation steps to get the latest tcl/tk version on Mac OS 10.14.6 (Mojave)
-        </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
+<h1 class="post-title" itemprop="name headline">categories
+</h1>
 
-              <time title="创建时间：2019-11-04 16:15:00 / 修改时间：16:57:12" itemprop="dateCreated datePublished" datetime="2019-11-04T16:15:00+08:00">2019-11-04</time>
-            </span>
+<div class="post-meta">
+  
 
-          
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <ol>
-<li>install pyenv via homebrew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>install tcl-tk via home brew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.pyenv/plugins/python-build/bin/python-build</span><br></pre></td></tr></table></figure>
-
-<p>Once you have the script file open, search for:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>and replace with:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">--with-tcltk-includes='-I/usr/local/opt/tcl-tk/include'</span> <span class="string">--with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib</span> <span class="string">-ltcl8.6</span> <span class="string">-ltk8.6'</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>install Python 3.8.0 in pyenv</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.8.0</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>Test your tcl-tk installation with</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$python</span> -m tkinter -c <span class="string">'tkinter._test()'</span></span><br></pre></td></tr></table></figure>
-
+      
+      
+      <div class="post-body">
+          
+      </div>
+      
+      
+      
     </div>
+    
 
     
     
     
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/pyenv/" rel="tag"># pyenv</a>
-              <a href="/tags/tcl-tk/" rel="tag"># tcl/tk</a>
-              <a href="/tags/python3/" rel="tag"># python3</a>
-          </div>
-
-        
-
-      </footer>
-    
-  </article>
-  
-  
-  
-
   </div>
 
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -513,23 +451,6 @@ window.addEventListener('pjax:success', () => {
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID: '5a01a593b3ff6f994682',
-      clientSecret: 'f4f58bfd29cf639c2a1a07d7113d651bb86a8891',
-      repo: '89790094.github.io',
-      owner: '89790094',
-      admin: ['yudis'],
-      id: '621e782358f7602be3fe64ee64d0a1a4',
-        language: 'zh-CN',
-      distractionFreeMode: 'true'
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-</script>
 
     </div>
 </body>
