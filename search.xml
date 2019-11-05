@@ -67,7 +67,6 @@
 <li><code>heapq.nsmallest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最小元素</li>
 </ul>
 <h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(iterable)</span>:</span></span><br><span class="line"><span class="meta">... </span>    h = []</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">for</span> value <span class="keyword">in</span> iterable:</span><br><span class="line"><span class="meta">... </span>        heappush(h, value)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> [heappop(h) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(h))]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>heapsort([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">0</span>])</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>堆元素可以是元组</li>
 </ul>
@@ -128,17 +127,15 @@
 </li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">save 900 1 <span class="comment"># 900秒内1个key发生变化</span></span><br><span class="line">save 300 10 <span class="comment"># 300秒内10个key发生变化</span></span><br><span class="line">save 60 10000 <span class="comment"># 60秒内10000个key发生变化</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
+<ol>
 <li><code>AOF</code> 持久化（重启时优先读取）</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">appendfsync always <span class="comment"># 只要key发生就会发持久化</span></span><br><span class="line">appendfsnc everysec <span class="comment"># 每秒持久化一次</span></span><br><span class="line">appendfsync no <span class="comment"># 不存储</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>oppendonly yes/no</code> </li>
 <li><code>appendfilename &quot;appendonly.aof&quot;</code>、<code>dir ./</code></li>
 </ul>
-<ol start="4">
+<ol>
 <li><code>cluster</code> 集群<ul>
 <li><code>cluster-enabled yes/no</code> 集群开关</li>
 <li><code>cluster-config-file nodes-6379.conf</code> 集群配置文件（系统自动维护，记录节点、状态、持久化参数等）</li>
@@ -155,27 +152,22 @@
 <li>ID:毫秒的<code>unix</code>时间戳-<code>sequence</code>（同一毫秒的序列号）组成</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建demo</span></span><br><span class="line">XADD flag * key value <span class="comment">#ID默认时返回值为：时间戳+序列号（从0开始）</span></span><br><span class="line">XADD flag 0-1 key value <span class="comment">#ID自定义时返回值为自定义的ID</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>返回<code>stream</code>中元素的个数</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XLEN &lt;key&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>删除一个ID</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XDEL &lt;key&gt; ID</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>从一个或多个<code>stream</code>读取数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XREAD [COUNT &lt;count&gt;] [BLOCK &lt;milliseconds&gt;] STREAMS &lt;key&gt; &lt;ID&gt; <span class="comment"># BLOCK 0 永远阻塞、&lt;key&gt; $ 获取最新的数据</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>查看给定<code>ID</code>范围内的<code>stream</code>数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XRNGE &lt;key&gt; &lt;start&gt; &lt;end&gt; [COUNT &lt;count&gt;] <span class="comment"># `+`最大ID、`-`最小ID</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>消费组</p>
 <ul>
@@ -184,30 +176,24 @@
 </li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XGROUP CREATE &lt;key&gt; &lt;groupname&gt; &lt;ID&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>从消费组中读取数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XREADGROUP GROUP &lt;groupname&gt; [COUNT &lt;count&gt;] [BLOCK &lt;milliseconds&gt;] STREAMS &lt;key&gt; &lt;ID&gt; <span class="comment"># ID为`&gt;`读取最新消息、&lt;ID&gt;之后的数据</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h4><h4 id="Sorted-Set命令"><a href="#Sorted-Set命令" class="headerlink" title="Sorted Set命令"></a><code>Sorted Set</code>命令</h4><ul>
 <li><code>ZPOPMAX</code> 删除集合中分值最高的元素</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">ZPOPMAX &lt;key&gt; [count]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>ZPOPMIN</code> 删除集合分值最低的元素</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">ZPOPMIN &lt;key&gt; [count]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>BZPOPMAX</code> ZPOPMAX的阻塞版</li>
 <li><code>BZPOPMIX</code> ZPOPMIN的阻塞版</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">BZPOPMAX &lt;key ...&gt; &lt;timeout&gt;</span><br></pre></td></tr></table></figure>
-
 <h4 id="碎片整理和内存报告"><a href="#碎片整理和内存报告" class="headerlink" title="碎片整理和内存报告"></a>碎片整理和内存报告</h4><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vi /etc/redis/redis.conf</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>activedefrag yes|no</code> 启动碎片整理程序</li>
 <li><code>active-defrg-ignore-bytes 100mb</code> 当内存小于100m时可以忽略</li>
@@ -215,7 +201,6 @@
 <li><code>info memory</code> 查看内存使用情况</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">&gt; info memory</span><br><span class="line"></span><br><span class="line">used_memory_human:?m <span class="comment">#实际内存占用</span></span><br><span class="line">used_memory_rss_human:?m <span class="comment">#系统分配内存</span></span><br><span class="line">mem_fragmentation_ratio: ? <span class="comment">#内存使用率</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">&gt; MEMORY STATS</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
@@ -232,29 +217,23 @@
 <li>install pyenv via homebrew</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>install tcl-tk via home brew</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
+<ol>
 <li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ vi ~/.pyenv/plugins/python-build/bin/python-build</span><br></pre></td></tr></table></figure>
-
 <p>Once you have the script file open, search for:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
 <p>and replace with:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">--with-tcltk-includes='-I/usr/local/opt/tcl-tk/include'</span> <span class="string">--with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib</span> <span class="string">-ltcl8.6</span> <span class="string">-ltk8.6'</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
+<ol>
 <li>install Python 3.8.0 in pyenv</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.8.0</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
+<ol>
 <li>Test your tcl-tk installation with</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$python</span> -m tkinter -c <span class="string">'tkinter._test()'</span></span><br></pre></td></tr></table></figure>
