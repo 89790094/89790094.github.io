@@ -13,25 +13,25 @@
 <li>是否为另一个集合的子集</li>
 </ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issubset(B)</span><br></pre></td></tr></table></figure><ul>
 <li>是否为另一个集合的父集</li>
-</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure><ul>
+</ul><a id="more"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>两个集合的对称差集</li>
-</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure><a id="more"></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>测试两个集合的交集，没有交集返回<code>True</code>；有交集返回<code>False</code></li>
@@ -73,11 +73,11 @@
 <li>以单个下划线开头的变量或方法仅供内部使用,该约定在<code>PEP8</code>中有定义;</li>
 <li>前导下划线的确会影响从模块中导入名称的方式（通配符导入）</li>
 <li>单个下划线是一个<code>Python</code>命名约定，表示这个名称是供内部使用的。它通常不由<code>Python</code>解释器强制执行，仅仅作为一种对程序员的提示。</li>
-</ul><blockquote>
+</ul><a id="more"></a>
+
+<blockquote>
 <p>单末尾下划线<code>var_</code></p>
-</blockquote><a id="more"></a>
-
-
+</blockquote>
 <ul>
 <li>单个末尾下划线（后缀）是一个约定，用来避免与<code>Python</code>关键字产生命名冲突，<code>PEP8</code>解释了这个约定</li>
 </ul>
