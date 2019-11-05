@@ -300,7 +300,7 @@
 <ol start="2">
 <li>install tcl-tk via home brew</li>
 </ol>
-<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/usr/local/opt/tcl-tk/lib"</span></span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=<span class="string">"-I/usr/local/opt/tcl-tk/include"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/tcl-tk/bin</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>

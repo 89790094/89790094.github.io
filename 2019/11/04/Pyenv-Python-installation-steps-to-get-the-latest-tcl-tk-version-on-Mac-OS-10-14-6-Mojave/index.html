@@ -51,15 +51,15 @@
   };
 </script>
 
-  <meta name="description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
+  <meta name="description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  12345$ brew install tcl-tkexport LDFLAGS=&quot;-L&#x2F;usr&#x2F;local&#x2F;opt&#x2F;tcl-tk&#x2F;lib&quot;export CPPFLAGS=&quot;-I&#x2F;usr&#x2F;local&#x2F;opt&#x2F;tcl-tk&#x2F;includ">
 <meta name="keywords" content="pyenv,tcl&#x2F;tk,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Pyenv Python installation steps to get the latest tcl&#x2F;tk version on Mac OS 10.14.6 (Mojave)">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave&#x2F;index.html">
 <meta property="og:site_name" content="灵猫日记">
-<meta property="og:description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
+<meta property="og:description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  12345$ brew install tcl-tkexport LDFLAGS=&quot;-L&#x2F;usr&#x2F;local&#x2F;opt&#x2F;tcl-tk&#x2F;lib&quot;export CPPFLAGS=&quot;-I&#x2F;usr&#x2F;local&#x2F;opt&#x2F;tcl-tk&#x2F;includ">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T13:23:05.807Z">
+<meta property="og:updated_time" content="2019-11-05T02:56:47.921Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/">
@@ -235,10 +235,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-11-04 16:15:00 / 修改时间：21:23:05" itemprop="dateCreated datePublished" datetime="2019-11-04T16:15:00+08:00">2019-11-04</time>
+              <time title="创建时间：2019-11-04 16:15:00" itemprop="dateCreated datePublished" datetime="2019-11-04T16:15:00+08:00">2019-11-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-05 10:56:47" itemprop="dateModified" datetime="2019-11-05T10:56:47+08:00">2019-11-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -270,7 +276,7 @@
 <ol start="2">
 <li>install tcl-tk via home brew</li>
 </ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br></pre></td></tr></table></figure>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/usr/local/opt/tcl-tk/lib"</span></span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=<span class="string">"-I/usr/local/opt/tcl-tk/include"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/tcl-tk/bin</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>
