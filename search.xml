@@ -5,33 +5,33 @@
     <url>/2019/11/05/Set%E9%9B%86%E5%90%88%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/</url>
     <content><![CDATA[<ul>
 <li>交集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.intersection(B)</span><br><span class="line">A &amp; B</span><br></pre></td></tr></table></figure>
-
-<ul>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.intersection(B)</span><br><span class="line">A &amp; B</span><br></pre></td></tr></table></figure><ul>
 <li>并集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.union(B)</span><br><span class="line">A | B</span><br></pre></td></tr></table></figure>
-
-<ul>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.union(B)</span><br><span class="line">A | B</span><br></pre></td></tr></table></figure><ul>
 <li>差集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.difference(B)</span><br></pre></td></tr></table></figure>
-
-<ul>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.difference(B)</span><br></pre></td></tr></table></figure><ul>
 <li>是否为另一个集合的子集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issubset(B)</span><br></pre></td></tr></table></figure>
-
-<ul>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issubset(B)</span><br></pre></td></tr></table></figure><ul>
 <li>是否为另一个集合的父集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure>
-
-<ul>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure><ul>
 <li>两个集合的对称差集</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure>
+</ul><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <ul>
 <li>测试两个集合的交集，没有交集返回<code>True</code>；有交集返回<code>False</code></li>
@@ -69,15 +69,15 @@
     <url>/2019/11/04/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/</url>
     <content><![CDATA[<blockquote>
 <p>单前导下划线 <code>_var</code></p>
-</blockquote>
-<ul>
+</blockquote><ul>
 <li>以单个下划线开头的变量或方法仅供内部使用,该约定在<code>PEP8</code>中有定义;</li>
 <li>前导下划线的确会影响从模块中导入名称的方式（通配符导入）</li>
 <li>单个下划线是一个<code>Python</code>命名约定，表示这个名称是供内部使用的。它通常不由<code>Python</code>解释器强制执行，仅仅作为一种对程序员的提示。</li>
-</ul>
-<blockquote>
+</ul><blockquote>
 <p>单末尾下划线<code>var_</code></p>
-</blockquote>
+</blockquote><a id="more"></a>
+
+
 <ul>
 <li>单个末尾下划线（后缀）是一个约定，用来避免与<code>Python</code>关键字产生命名冲突，<code>PEP8</code>解释了这个约定</li>
 </ul>
@@ -119,8 +119,7 @@
     <content><![CDATA[<h4 id="堆队列算法-heapq"><a href="#堆队列算法-heapq" class="headerlink" title="堆队列算法:heapq"></a>堆队列算法:heapq</h4><ul>
 <li><code>import headq</code></li>
 <li>要创建堆，请使用已初始化的列表<code>[]</code></li>
-</ul>
-<h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><ul>
+</ul><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><ul>
 <li><code>heapq.heappush(&lt;heap&gt;,&lt;item&gt;)</code> 将值项推送到堆上，保持堆不变</li>
 <li><code>heapq.heappop(&lt;heap&gt;)</code> 弹出并返回堆中的最小项，保持堆不变，如果堆为空，<code>IndexError</code>则引发</li>
 <li><code>heapq.heappushpop(&lt;heap&gt;,&lt;item&gt;)</code> 在堆上推送项目，然后弹出并返回堆中的最小项目</li>
@@ -129,7 +128,8 @@
 <li><code>heapq.merge（&lt;*iterables&gt;，key = None，reverse = False ）</code> 将多个已排序的输入合并为单个排序的输出</li>
 <li><code>heapq.nlargest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最大元素</li>
 <li><code>heapq.nsmallest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最小元素</li>
-</ul>
+</ul><a id="more"></a>
+
 <h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(iterable)</span>:</span></span><br><span class="line"><span class="meta">... </span>    h = []</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">for</span> value <span class="keyword">in</span> iterable:</span><br><span class="line"><span class="meta">... </span>        heappush(h, value)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> [heappop(h) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(h))]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>heapsort([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">0</span>])</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -160,7 +160,7 @@
 <li>增强<code>HyperLogLog</code>实现</li>
 <li>内存统计报告</li>
 <li>子命令都有一个<code>help</code>子命令</li>
-</ol>
+</ol><a id="more"></a>
 <h4 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h4><ol>
 <li>基本命令<ul>
 <li><code>redis-server /etc/redis/redis.conf</code> 启动</li>
@@ -294,13 +294,13 @@
     <url>/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/</url>
     <content><![CDATA[<ol>
 <li>install pyenv via homebrew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+</ol><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure><ol start="2">
 <li>install tcl-tk via home brew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/usr/local/opt/tcl-tk/lib"</span></span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=<span class="string">"-I/usr/local/opt/tcl-tk/include"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/tcl-tk/bin</span><br></pre></td></tr></table></figure>
+</ol><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> LDFLAGS=<span class="string">"-L/usr/local/opt/tcl-tk/lib"</span></span><br><span class="line"><span class="built_in">export</span> CPPFLAGS=<span class="string">"-I/usr/local/opt/tcl-tk/include"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/opt/tcl-tk/bin</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+
 
 <ol start="3">
 <li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -15,13 +15,15 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 
 <script id="hexo-configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '7.5.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
@@ -43,22 +45,22 @@
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
     },
     sidebarPadding: 40
   };
 </script>
 
-  <meta name="description" content="新特性 新的Stream数据类型 本质：抽象日志 时间数据流   模块API：Timers and Cluster API RDB现在存储LFU和LRU信息 集群管理器从Ruby移植到C代码 sorted set命令：ZPOPMIN、ZPOPMAX和阻塞变种 主动碎片整理，Jemalloc:内存分配器 增强HyperLogLog实现 内存统计报告 子命令都有一个help子命令  命令行 基本命令">
+  <meta name="description" content="新特性 新的Stream数据类型 本质：抽象日志 时间数据流   模块API：Timers and Cluster API RDB现在存储LFU和LRU信息 集群管理器从Ruby移植到C代码 sorted set命令：ZPOPMIN、ZPOPMAX和阻塞变种 主动碎片整理，Jemalloc:内存分配器 增强HyperLogLog实现 内存统计报告 子命令都有一个help子命令">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis5手记">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;Redis5%E6%89%8B%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="灵猫日记">
-<meta property="og:description" content="新特性 新的Stream数据类型 本质：抽象日志 时间数据流   模块API：Timers and Cluster API RDB现在存储LFU和LRU信息 集群管理器从Ruby移植到C代码 sorted set命令：ZPOPMIN、ZPOPMAX和阻塞变种 主动碎片整理，Jemalloc:内存分配器 增强HyperLogLog实现 内存统计报告 子命令都有一个help子命令  命令行 基本命令">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="新特性 新的Stream数据类型 本质：抽象日志 时间数据流   模块API：Timers and Cluster API RDB现在存储LFU和LRU信息 集群管理器从Ruby移植到C代码 sorted set命令：ZPOPMIN、ZPOPMAX和阻塞变种 主动碎片整理，Jemalloc:内存分配器 增强HyperLogLog实现 内存统计报告 子命令都有一个help子命令">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-04T13:39:38.012Z">
 <meta name="twitter:card" content="summary">
 
@@ -128,7 +130,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
+    <div class="toggle" aria-label="Toggle navigation bar">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -142,26 +144,26 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -175,7 +177,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="text" id="search-input">
   </div>
   <span class="popup-btn-close">
@@ -212,7 +214,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/Redis5%E6%89%8B%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -234,16 +236,16 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">发表于</span>
+              <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="创建时间：2019-11-04 21:33:21 / 修改时间：21:39:38" itemprop="dateCreated datePublished" datetime="2019-11-04T21:33:21+08:00">2019-11-04</time>
+              <time title="Created: 2019-11-04 21:33:21 / Modified: 21:39:38" itemprop="dateCreated datePublished" datetime="2019-11-04T21:33:21+08:00">2019-11-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
+              <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/redis/" itemprop="url" rel="index">
                     <span itemprop="name">redis</span>
@@ -276,7 +278,7 @@
 <li>增强<code>HyperLogLog</code>实现</li>
 <li>内存统计报告</li>
 <li>子命令都有一个<code>help</code>子命令</li>
-</ol>
+</ol><a id="more"></a>
 <h4 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h4><ol>
 <li>基本命令<ul>
 <li><code>redis-server /etc/redis/redis.conf</code> 启动</li>
@@ -454,10 +456,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
@@ -480,20 +482,20 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span></a>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
@@ -528,11 +530,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">@liudong</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
-  </div>
 
         
 
@@ -553,12 +550,14 @@
   </div>
 
   
+  
+  <script color='0,0,255' opacity='0.5' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/pjax/pjax.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/pisces.js"></script>
+<script src="/js/schemes/muse.js"></script>
 <script src="/js/next-boot.js"></script>
   <script>
 var pjax = new Pjax({
@@ -618,6 +617,8 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
 
 
   
