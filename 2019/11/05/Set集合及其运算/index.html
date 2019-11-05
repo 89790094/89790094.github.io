@@ -51,18 +51,18 @@
   };
 </script>
 
-  <meta name="description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
-<meta name="keywords" content="pyenv,tcl&#x2F;tk,python">
+  <meta name="description" content="交集  12A.intersection(B)A &amp;amp; B   并集  12A.union(B)A | B   差集  1A.difference(B)   是否为另一个集合的子集  1A.issubset(B)   是否为另一个集合的父集  1A.issuperset(B)   两个集合的对称差集  1A.symmetric_difference(B)   测试两个集合的交集，没有交集返">
+<meta name="keywords" content="set">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Pyenv Python installation steps to get the latest tcl&#x2F;tk version on Mac OS 10.14.6 (Mojave)">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave&#x2F;index.html">
+<meta property="og:title" content="Set集合及其运算">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;05&#x2F;Set%E9%9B%86%E5%90%88%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97&#x2F;index.html">
 <meta property="og:site_name" content="灵猫日记">
-<meta property="og:description" content="install pyenv via homebrew  1$ brew install pyenv   install tcl-tk via home brew  1$ brew install tcl-tk   to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build s">
+<meta property="og:description" content="交集  12A.intersection(B)A &amp;amp; B   并集  12A.union(B)A | B   差集  1A.difference(B)   是否为另一个集合的子集  1A.issubset(B)   是否为另一个集合的父集  1A.issuperset(B)   两个集合的对称差集  1A.symmetric_difference(B)   测试两个集合的交集，没有交集返">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T13:23:05.807Z">
+<meta property="og:updated_time" content="2019-11-05T02:53:20.766Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/">
+<link rel="canonical" href="http://yoursite.com/2019/11/05/Set%E9%9B%86%E5%90%88%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/">
 
 
 <script id="page-configurations">
@@ -76,7 +76,7 @@
   };
 </script>
 
-  <title>Pyenv Python installation steps to get the latest tcl/tk version on Mac OS 10.14.6 (Mojave) | 灵猫日记</title>
+  <title>Set集合及其运算 | 灵猫日记</title>
   
 
 
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/04/Pyenv-Python-installation-steps-to-get-the-latest-tcl-tk-version-on-Mac-OS-10-14-6-Mojave/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/05/Set%E9%9B%86%E5%90%88%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Pyenv Python installation steps to get the latest tcl/tk version on Mac OS 10.14.6 (Mojave)
+          Set集合及其运算
         </h1>
 
         <div class="post-meta">
@@ -237,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-11-04 16:15:00 / 修改时间：21:23:05" itemprop="dateCreated datePublished" datetime="2019-11-04T16:15:00+08:00">2019-11-04</time>
+              <time title="创建时间：2019-11-05 10:49:12 / 修改时间：10:53:20" itemprop="dateCreated datePublished" datetime="2019-11-05T10:49:12+08:00">2019-11-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,37 +262,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li>install pyenv via homebrew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install pyenv</span><br></pre></td></tr></table></figure>
+        <ul>
+<li>交集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A.intersection(B)</span><br><span class="line">A &amp; B</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>install tcl-tk via home brew</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install tcl-tk</span><br></pre></td></tr></table></figure>
+<ul>
+<li>并集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A.union(B)</span><br><span class="line">A | B</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.pyenv/plugins/python-build/bin/python-build</span><br></pre></td></tr></table></figure>
+<ul>
+<li>差集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.difference(B)</span><br></pre></td></tr></table></figure>
 
-<p>Once you have the script file open, search for:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>是否为另一个集合的子集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.issubset(B)</span><br></pre></td></tr></table></figure>
 
-<p>and replace with:</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">--with-tcltk-includes='-I/usr/local/opt/tcl-tk/include'</span> <span class="string">--with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib</span> <span class="string">-ltcl8.6</span> <span class="string">-ltk8.6'</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>是否为另一个集合的父集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>install Python 3.8.0 in pyenv</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.8.0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>两个集合的对称差集</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li>Test your tcl-tk installation with</li>
-</ol>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$python</span> -m tkinter -c <span class="string">'tkinter._test()'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试两个集合的交集，没有交集返回<code>True</code>；有交集返回<code>False</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.isdisjoint(B)</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>给集合添加一项元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.add(B)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>给集合添加多项元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>给集合删除一项元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.remove(B)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除集合中指定的一项元素</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.discard(&lt;val&gt;)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -301,23 +324,21 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/pyenv/" rel="tag"># pyenv</a>
-              <a href="/tags/tcl-tk/" rel="tag"># tcl/tk</a>
-              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/set/" rel="tag"># set</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
+                <a href="/2019/11/04/Python%E4%B8%AD%E4%B8%8B%E5%88%92%E7%BA%BF%E7%9A%845%E7%A7%8D%E5%90%AB%E4%B9%89/" rel="next" title="Python中下划线的5种含义">
+                  <i class="fa fa-chevron-left"></i> Python中下划线的5种含义
+                </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/04/Redis5%E6%89%8B%E8%AE%B0/" rel="prev" title="Redis5手记">
-                  Redis5手记 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -554,7 +575,7 @@ window.addEventListener('pjax:success', () => {
       repo: '89790094.github.io',
       owner: '89790094',
       admin: ['yudis'],
-      id: '621e782358f7602be3fe64ee64d0a1a4',
+      id: '5f77ffbed32ee793f0d673e92160b153',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });

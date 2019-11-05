@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-04T13:43:24.547Z</updated>
+  <updated>2019-11-05T02:53:20.766Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Set集合及其运算</title>
+    <link href="http://yoursite.com/2019/11/05/Set%E9%9B%86%E5%90%88%E5%8F%8A%E5%85%B6%E8%BF%90%E7%AE%97/"/>
+    <id>http://yoursite.com/2019/11/05/Set集合及其运算/</id>
+    <published>2019-11-05T02:49:12.000Z</published>
+    <updated>2019-11-05T02:53:20.766Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>交集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A.intersection(B)</span><br><span class="line">A &amp; B</span><br></pre></td></tr></table></figure><ul><li>并集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A.union(B)</span><br><span class="line">A | B</span><br></pre></td></tr></table></figure><ul><li>差集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.difference(B)</span><br></pre></td></tr></table></figure><ul><li>是否为另一个集合的子集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.issubset(B)</span><br></pre></td></tr></table></figure><ul><li>是否为另一个集合的父集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure><ul><li>两个集合的对称差集</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure><ul><li>测试两个集合的交集，没有交集返回<code>True</code>；有交集返回<code>False</code></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.isdisjoint(B)</span><br></pre></td></tr></table></figure><ul><li>给集合添加一项元素</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.add(B)</span><br></pre></td></tr></table></figure><ul><li>给集合添加多项元素</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.update(B)</span><br></pre></td></tr></table></figure><ul><li>给集合删除一项元素</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.remove(B)</span><br></pre></td></tr></table></figure><ul><li>删除集合中指定的一项元素</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A.discard(&lt;val&gt;)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;交集&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="set" scheme="http://yoursite.com/tags/set/"/>
+    
+  </entry>
   
   <entry>
     <title>Python中下划线的5种含义</title>
