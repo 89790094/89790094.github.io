@@ -53,15 +53,15 @@
   };
 </script>
 
-  <meta name="description" content="內建的 time 用法 1234567891011import timeprint(&quot;时间：&quot;, time.localtime(time.time()))print(&amp;apos;時間(基本格式化)：&amp;apos;, time.asctime(time.localtime(time.time())))# 格式化成 2018-10-03 09:45:39形式print(&amp;apos;时间(格式化)：&amp;apos;, time.strftime(">
+  <meta name="description" content="內建的 time 用法 1234567891011import timeprint(&quot;时间：&quot;, time.localtime(time.time()))print(&amp;apos;时间(基本格式化)：&amp;apos;, time.asctime(time.localtime(time.time())))# 格式化成 2018-10-03 09:45:39形式print(&amp;apos;时间(格式化)：&amp;apos;, time.strftime(">
 <meta name="keywords" content="时间库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python人性化的时间库arrow">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;10&#x2F;Python%E4%BA%BA%E6%80%A7%E5%8C%96%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93arrow&#x2F;index.html">
 <meta property="og:site_name" content="灵猫日记">
-<meta property="og:description" content="內建的 time 用法 1234567891011import timeprint(&quot;时间：&quot;, time.localtime(time.time()))print(&amp;apos;時間(基本格式化)：&amp;apos;, time.asctime(time.localtime(time.time())))# 格式化成 2018-10-03 09:45:39形式print(&amp;apos;时间(格式化)：&amp;apos;, time.strftime(">
+<meta property="og:description" content="內建的 time 用法 1234567891011import timeprint(&quot;时间：&quot;, time.localtime(time.time()))print(&amp;apos;时间(基本格式化)：&amp;apos;, time.asctime(time.localtime(time.time())))# 格式化成 2018-10-03 09:45:39形式print(&amp;apos;时间(格式化)：&amp;apos;, time.strftime(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-10T08:57:46.214Z">
+<meta property="og:updated_time" content="2020-02-10T09:05:40.924Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2020/02/10/Python%E4%BA%BA%E6%80%A7%E5%8C%96%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93arrow/">
@@ -239,7 +239,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-10 16:51:52 / 修改时间：16:57:46" itemprop="dateCreated datePublished" datetime="2020-02-10T16:51:52+08:00">2020-02-10</time>
+              <time title="创建时间：2020-02-10 16:51:52 / 修改时间：17:05:40" itemprop="dateCreated datePublished" datetime="2020-02-10T16:51:52+08:00">2020-02-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,7 +266,14 @@
       
         <blockquote>
 <p>內建的 time 用法</p>
-</blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">print(<span class="string">"时间："</span>, time.localtime(time.time()))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'時間(基本格式化)：'</span>, time.asctime(time.localtime(time.time())))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化成 2018-10-03 09:45:39形式</span></span><br><span class="line">print(<span class="string">'时间(格式化)：'</span>, time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime()))</span><br><span class="line"></span><br><span class="line">s = <span class="string">"2018-10-03 09:45:39"</span></span><br><span class="line">print(<span class="string">'时间戳：'</span>, time.mktime(time.strptime(s, <span class="string">"%Y-%m-%d %H:%M:%S"</span>)))</span><br></pre></td></tr></table></figure>
+</blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">print(<span class="string">"时间："</span>, time.localtime(time.time()))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'时间(基本格式化)：'</span>, time.asctime(time.localtime(time.time())))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化成 2018-10-03 09:45:39形式</span></span><br><span class="line">print(<span class="string">'时间(格式化)：'</span>, time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime()))</span><br><span class="line"></span><br><span class="line">s = <span class="string">"2018-10-03 09:45:39"</span></span><br><span class="line">print(<span class="string">'时间戳：'</span>, time.mktime(time.strptime(s, <span class="string">"%Y-%m-%d %H:%M:%S"</span>)))</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+<blockquote>
+<p>arrow</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">pip install arrow</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用</span></span><br><span class="line"><span class="keyword">import</span> arrow</span><br><span class="line"><span class="comment"># 取得当下时间</span></span><br><span class="line">print(<span class="string">'现在时间'</span>, arrow.now())</span><br><span class="line">print(<span class="string">'UTC时间'</span>, arrow.utcnow())</span><br><span class="line"><span class="comment"># 时间形式转换</span></span><br><span class="line">print(<span class="string">'时间(格式化)：'</span>, arrow.now().format(<span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">print(<span class="string">'时间戳：'</span>, arrow.now().timestamp)</span><br><span class="line">print(<span class="string">'字串转时间：'</span>, arrow.get(<span class="string">"2018-10-03 09:45:55"</span>, <span class="string">"YYYY-MM-DD HH:mm:ss"</span>))</span><br><span class="line">print(<span class="string">'时间戳转时间：'</span>, arrow.get(<span class="string">"1538531139.0"</span>))</span><br><span class="line"><span class="comment"># 直接生成</span></span><br><span class="line">print(<span class="string">'直接生成：'</span>, arrow.Arrow(<span class="number">2018</span>, <span class="number">10</span>, <span class="number">3</span>))</span><br><span class="line"><span class="comment"># 时间推移</span></span><br><span class="line">t = arrow.now()</span><br><span class="line">print(<span class="string">'前一天：'</span>, t.shift(days=<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">'前一周：'</span>, t.shift(weeks=<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">'前一月：'</span>, t.shift(months=<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">'前一年：'</span>, t.shift(years=<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">'前一小時：'</span>, t.shift(hours=<span class="number">-1</span>))</span><br><span class="line">print(<span class="string">'人性化描述：'</span>, t.shift(hours=<span class="number">-1</span>).humanize(locale=<span class="string">'zh_tw'</span>))</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
