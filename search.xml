@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Prisma 1.34.10 在mongodb中应用问题集</title>
+    <title>Prisma 1.34.10 在mongodb中应用记录集</title>
     <url>/2020/03/24/Prisma-1-34-10-%E5%9C%A8mongodb%E4%B8%AD%E5%BA%94%E7%94%A8%E9%97%AE%E9%A2%98%E9%9B%86/</url>
     <content><![CDATA[<ol>
 <li>schema类型为数组时只能添加不能查询，且playground docs查询中无此字段选项</li>
 </ol><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">path: [String!]!</span><br><span class="line"></span><br><span class="line">mutation(data:&#123;</span><br><span class="line">    path:&#123;</span><br><span class="line">        set:[&quot;str&quot;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)&#123;</span><br><span class="line">    path</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-
 <ol start="2">
 <li>prisma以mongodb为数据源生成的playground docs查询中无OR方法</li>
+<li>修改完docker-compose.yml文件后必须docker-compose up -d后容器才能加载修改过的文件</li>
+<li></li>
 </ol>
-<p>3.</p>
 ]]></content>
       <categories>
         <category>Node.js</category>
