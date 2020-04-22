@@ -53,18 +53,18 @@
   };
 </script>
 
-  <meta name="description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
-<meta name="keywords" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;index.html">
+  <meta name="description" content="思路  MongoClient 释放资源 123456789101112131415161718192021222324252627282930313233# coding=utf-8from pymongo import MongoClientclass Connection:    def __init__(self):        self.connect = None    def _">
+<meta name="keywords" content="pymongo,mongodb,replicaSet">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pymongo连接mongodb副本集">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;04&#x2F;22&#x2F;pymongo%E8%BF%9E%E6%8E%A5mongodb%E5%89%AF%E6%9C%AC%E9%9B%86&#x2F;index.html">
 <meta property="og:site_name" content="一亩二分自留地">
-<meta property="og:description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&amp;ML Elasticsearch">
+<meta property="og:description" content="思路  MongoClient 释放资源 123456789101112131415161718192021222324252627282930313233# coding=utf-8from pymongo import MongoClientclass Connection:    def __init__(self):        self.connect = None    def _">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T13:27:05.227Z">
+<meta property="og:updated_time" content="2020-04-22T03:01:05.800Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/categories/">
+<link rel="canonical" href="http://yoursite.com/2020/04/22/pymongo%E8%BF%9E%E6%8E%A5mongodb%E5%89%AF%E6%9C%AC%E9%9B%86/">
 
 
 <script id="page-configurations">
@@ -72,14 +72,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
-    isPage: true,
+    isPost: true,
+    isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>分类 | 一亩二分自留地
-  </title>
+  <title>pymongo连接mongodb副本集 | 一亩二分自留地</title>
   
 
 
@@ -207,57 +206,110 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
           <div class="content">
             
 
   <div class="posts-expand">
-    
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">分类
-</h1>
-
-<div class="post-meta">
+      
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/pymongo%E8%BF%9E%E6%8E%A5mongodb%E5%89%AF%E6%9C%AC%E9%9B%86/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="@liudong">
+      <meta itemprop="description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&ML Elasticsearch">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一亩二分自留地">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          pymongo连接mongodb副本集
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-04-22 10:56:25 / 修改时间：11:01:05" itemprop="dateCreated datePublished" datetime="2020-04-22T10:56:25+08:00">2020-04-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共计 4 个分类
+        <blockquote>
+<p>思路</p>
+</blockquote><ol>
+<li>MongoClient</li>
+<li>释放资源</li>
+</ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">from</span> pymongo <span class="keyword">import</span> MongoClient</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Connection</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.connect = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__enter__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.connect = MongoClient(</span><br><span class="line">            <span class="string">'mongodb://root:sa@192.168.199.98:28017,192.168.199.99:28019/?replicaSet=rs0&amp;authSource=admin'</span>)</span><br><span class="line">        <span class="keyword">return</span> self.connect.get_database(<span class="string">'test'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__exit__</span><span class="params">(self, exc_type, exc_val, exc_tb)</span>:</span></span><br><span class="line">        self.connect.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">client</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        connection = MongoClient(</span><br><span class="line">            <span class="string">'mongodb://root:sa@192.168.199.98:28017,192.168.199.99:28019/?replicaSet=rs0&amp;authSource=admin'</span>)</span><br><span class="line">        <span class="keyword">return</span> connection.get_database(<span class="string">'test'</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> e</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        connection.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># db = client()</span></span><br><span class="line">    <span class="keyword">with</span> Connection() <span class="keyword">as</span> db:</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> db.test.find():</span><br><span class="line">            print(x)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/pymongo/" rel="tag"># pymongo</a>
+              <a href="/tags/mongodb/" rel="tag"># mongodb</a>
+              <a href="/tags/replicaSet/" rel="tag"># replicaSet</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/04/13/ElasticSearch6%E5%AE%9E%E7%8E%B0%E5%8D%95%E5%AD%97-%E8%AF%8D%E8%AF%AD%E6%9F%A5%E8%AF%A2/" rel="next" title="ElasticSearch6实现单字+词语查询">
+                  <i class="fa fa-chevron-left"></i> ElasticSearch6实现单字+词语查询
+                </a>
             </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ElasticSearch6/">ElasticSearch6</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">1</span></li></ul>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
             </div>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
+      </footer>
     
+  </article>
+  
+  
+  
 
-    
-    
-    
   </div>
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
         </div>
           
@@ -463,6 +515,23 @@ window.addEventListener('pjax:success', () => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '5a01a593b3ff6f994682',
+      clientSecret: 'f4f58bfd29cf639c2a1a07d7113d651bb86a8891',
+      repo: '89790094.github.io',
+      owner: '89790094',
+      admin: ['yudis'],
+      id: '7047acae738a0839c4a78e22104b9ec0',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
 
     </div>
 </body>
