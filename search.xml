@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>macOS Catulina 10.15.4下安装wine 64的方法（基于electron-packager打包win32程序）</title>
+    <url>/2020/04/27/macOS-Catulina-10-15-4%E4%B8%8B%E5%AE%89%E8%A3%85wine-64%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%9F%BA%E4%BA%8Eelectron-packager%E6%89%93%E5%8C%85win32%E7%A8%8B%E5%BA%8F%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p>安装</p>
+</blockquote><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew cask install xquartz</span><br><span class="line">$ brew cask install wine-staging</span><br></pre></td></tr></table></figure><p>最后根据提示安装Mono（.net 框架）</p>]]></content>
+      <categories>
+        <category>macOS</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+        <tag>electorn</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>macOS解决No receipt for com.apple.pkg.CLTools_Executables found at /的问题</title>
     <url>/2020/04/24/macOS%E8%A7%A3%E5%86%B3No-receipt-for-com-apple-pkg-CLTools-Executables-found-at-%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
 <p>解决方法</p>
-</blockquote><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sudo</span></span><br><span class="line">sudo xcode-select -s /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>]]></content>
+</blockquote><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># sudo</span></span><br><span class="line">$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>macOS</category>
+      </categories>
       <tags>
         <tag>macOS</tag>
       </tags>
