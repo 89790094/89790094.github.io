@@ -239,7 +239,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-27 08:31:19 / 修改时间：08:42:08" itemprop="dateCreated datePublished" datetime="2020-04-27T08:31:19+08:00">2020-04-27</time>
+              <time title="创建时间：2020-04-27 08:31:19 / 修改时间：08:45:26" itemprop="dateCreated datePublished" datetime="2020-04-27T08:31:19+08:00">2020-04-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,7 +266,9 @@
       
           <blockquote>
 <p>安装</p>
-</blockquote><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install xquartz</span><br><span class="line">$ brew cask install wine-staging</span><br></pre></td></tr></table></figure><p>最后根据提示安装Mono（.net 框架）</p>
+</blockquote><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install xquartz</span><br><span class="line">$ brew cask install wine-staging</span><br></pre></td></tr></table></figure><blockquote>
+<p>electorn-package</p>
+</blockquote><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 根据提示完成Mono(.net框架)的安装</span></span><br><span class="line">$ electron-packager . LanguageNote --platform=win32 --arch=x64 --out=dist --icon=./assets/logo.ico --prune=<span class="literal">true</span> --asar</span><br></pre></td></tr></table></figure>
       
     </div>
 
