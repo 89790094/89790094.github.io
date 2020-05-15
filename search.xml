@@ -1,13 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title> MacOS App icns 图标快速生成</title>
+    <url>/2020/05/15/MacOS-App-icns-%E5%9B%BE%E6%A0%87%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90/</url>
+    <content><![CDATA[<blockquote>
+<p>生成步骤</p>
+</blockquote><ol>
+<li>准备一个<code>1024 * 1024</code>的<code>png</code>,名字为<code>icon.png</code></li>
+<li>创建图片存放的临时目录：<code>$ mkdir icon.iconset</code></li>
+<li>转换</li>
+</ol><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sips -z 16 16     icon.png --out icon.iconset/icon_16x16.png</span><br><span class="line">$ sips -z 32 32     icon.png --out icon.iconset/icon_16x16@2x.png</span><br><span class="line">$ sips -z 32 32     icon.png --out icon.iconset/icon_32x32.png</span><br><span class="line">$ sips -z 64 64     icon.png --out icon.iconset/icon_32x32@2x.png</span><br><span class="line">$ sips -z 128 128   icon.png --out icon.iconset/icon_128x128.png</span><br><span class="line">$ sips -z 256 256   icon.png --out icon.iconset/icon_128x128@2x.png</span><br><span class="line">$ sips -z 256 256   icon.png --out icon.iconset/icon_256x256.png</span><br><span class="line">$ sips -z 512 512   icon.png --out icon.iconset/icon_256x256@2x.png</span><br><span class="line">$ sips -z 512 512   icon.png --out icon.iconset/icon_512x512.png</span><br><span class="line">$ sips -z 1024 1024   icon.png --out icon.iconset/icon_512x512@2x.png</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+<ol start="4">
+<li>通过<code>iconutil</code>生成<code>icns</code>文件</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">iconutil -c icns icon.iconset -o icon.icns</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Cordova</category>
+      </categories>
+      <tags>
+        <tag>MacOS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>macOS Catulina 10.15.4下安装wine 64的方法（基于electron-packager打包win32程序）</title>
     <url>/2020/04/27/macOS-Catulina-10-15-4%E4%B8%8B%E5%AE%89%E8%A3%85wine-64%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%88%E5%9F%BA%E4%BA%8Eelectron-packager%E6%89%93%E5%8C%85win32%E7%A8%8B%E5%BA%8F%EF%BC%89/</url>
     <content><![CDATA[<blockquote>
 <p>安装</p>
 </blockquote><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew cask install xquartz</span><br><span class="line">$ brew cask install wine-staging</span><br></pre></td></tr></table></figure><blockquote>
 <p>electorn-package</p>
-</blockquote><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 根据提示完成Mono(.net框架)的安装</span></span><br><span class="line">$ electron-packager . LanguageNote --platform=win32 --arch=x64 --out=dist --icon=./assets/logo.ico --prune=<span class="literal">true</span> --asar</span><br></pre></td></tr></table></figure>]]></content>
+</blockquote><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 根据提示完成Mono/Gecko(.net框架)的安装</span></span><br><span class="line">$ electron-packager . LanguageNote --platform=win32 --arch=x64 --out=dist --icon=./assets/logo.ico --prune=<span class="literal">true</span> --asar</span><br></pre></td></tr></table></figure><a id="more"></a>
+
+
+
+<blockquote>
+<p>electorn-build</p>
+</blockquote>
+<ol>
+<li>在MacOS上利用Docker打包windows安装程序</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 拉取容器并运行进入</span><br><span class="line">$ docker run --rm -ti \</span><br><span class="line"> --env-file &lt;(env | grep -iE &apos;DEBUG|NODE_|ELECTRON_|YARN_|NPM_|CI|CIRCLE|TRAVIS_TAG|TRAVIS|TRAVIS_REPO_|TRAVIS_BUILD_|TRAVIS_BRANCH|TRAVIS_PULL_REQUEST_|APPVEYOR_|CSC_|GH_|GITHUB_|BT_|AWS_|STRIP|BUILD_&apos;) \</span><br><span class="line"> --env ELECTRON_CACHE=&quot;/root/.cache/electron&quot; \</span><br><span class="line"> --env ELECTRON_BUILDER_CACHE=&quot;/root/.cache/electron-builder&quot; \</span><br><span class="line"> -v $&#123;PWD&#125;:/project \</span><br><span class="line"> -v $&#123;PWD##*/&#125;-node-modules:/project/node_modules \</span><br><span class="line"> -v ~/.cache/electron:/root/.cache/electron \</span><br><span class="line"> -v ~/.cache/electron-builder:/root/.cache/electron-builder \</span><br><span class="line"> electronuserland/builder:wine</span><br><span class="line"># package.json配置</span><br><span class="line">&quot;dist&quot;: &quot;electron-builder -w nsis&quot;</span><br><span class="line">&gt; yarn</span><br><span class="line"># 环境变量配置</span><br><span class="line">export CSC_NAME=&apos;*.p12&apos;</span><br><span class="line">export CSC_LINK=*.p12&apos;</span><br><span class="line">export CSC_KEY_PASSWORD=&apos;****&apos;</span><br><span class="line">export WIN_CSC_LINK=*.p12</span><br><span class="line">export WIN_CSC_KEY_PASSWORD=&apos;****&apos;</span><br><span class="line">&gt; yarn dist</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>electron-installer-windows</p>
+</blockquote>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ brew install mono</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>macOS</category>
       </categories>
@@ -108,7 +146,6 @@
 <p>內建的 time 用法</p>
 </blockquote><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">print(<span class="string">"时间："</span>, time.localtime(time.time()))</span><br><span class="line"></span><br><span class="line">print(<span class="string">'时间(基本格式化)：'</span>, time.asctime(time.localtime(time.time())))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 格式化成 2018-10-03 09:45:39形式</span></span><br><span class="line">print(<span class="string">'时间(格式化)：'</span>, time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime()))</span><br><span class="line"></span><br><span class="line">s = <span class="string">"2018-10-03 09:45:39"</span></span><br><span class="line">print(<span class="string">'时间戳：'</span>, time.mktime(time.strptime(s, <span class="string">"%Y-%m-%d %H:%M:%S"</span>)))</span><br></pre></td></tr></table></figure><a id="more"></a>
 
-
 <blockquote>
 <p>arrow</p>
 </blockquote>
@@ -143,37 +180,27 @@
 
 
 
-
-
-
-
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.issuperset(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>两个集合的对称差集</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.symmetric_difference(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>测试两个集合的交集，没有交集返回<code>True</code>；有交集返回<code>False</code></li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.isdisjoint(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>给集合添加一项元素</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.add(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>给集合添加多项元素</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.update(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>给集合删除一项元素</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A.remove(B)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>删除集合中指定的一项元素</li>
 </ul>
@@ -237,10 +264,10 @@
   <entry>
     <title>堆队列算法：heapq</title>
     <url>/2019/11/04/%E5%A0%86%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95%EF%BC%9Aheapq/</url>
-    <content><![CDATA[<h4 id="堆队列算法-heapq"><a href="#堆队列算法-heapq" class="headerlink" title="堆队列算法:heapq"></a>堆队列算法:heapq</h4><ul>
+    <content><![CDATA[<h4 id="堆队列算法heapq"><a class="markdownIt-Anchor" href="#堆队列算法heapq"></a> 堆队列算法:heapq</h4><ul>
 <li><code>import headq</code></li>
 <li>要创建堆，请使用已初始化的列表<code>[]</code></li>
-</ul><h5 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h5><ul>
+</ul><h5 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h5><ul>
 <li><code>heapq.heappush(&lt;heap&gt;,&lt;item&gt;)</code> 将值项推送到堆上，保持堆不变</li>
 <li><code>heapq.heappop(&lt;heap&gt;)</code> 弹出并返回堆中的最小项，保持堆不变，如果堆为空，<code>IndexError</code>则引发</li>
 <li><code>heapq.heappushpop(&lt;heap&gt;,&lt;item&gt;)</code> 在堆上推送项目，然后弹出并返回堆中的最小项目</li>
@@ -251,8 +278,10 @@
 <li><code>heapq.nsmallest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最小元素</li>
 </ul><a id="more"></a>
 
-<h5 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(iterable)</span>:</span></span><br><span class="line"><span class="meta">... </span>    h = []</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">for</span> value <span class="keyword">in</span> iterable:</span><br><span class="line"><span class="meta">... </span>        heappush(h, value)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> [heappop(h) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(h))]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>heapsort([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">0</span>])</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 
+
+<h5 id="demo"><a class="markdownIt-Anchor" href="#demo"></a> Demo</h5>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">heapsort</span><span class="params">(iterable)</span>:</span></span><br><span class="line"><span class="meta">... </span>    h = []</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">for</span> value <span class="keyword">in</span> iterable:</span><br><span class="line"><span class="meta">... </span>        heappush(h, value)</span><br><span class="line"><span class="meta">... </span>    <span class="keyword">return</span> [heappop(h) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(h))]</span><br><span class="line">...</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>heapsort([<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">0</span>])</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>堆元素可以是元组</li>
 </ul>
@@ -267,12 +296,12 @@
   <entry>
     <title>Redis5手记</title>
     <url>/2019/11/04/Redis5%E6%89%8B%E8%AE%B0/</url>
-    <content><![CDATA[<h4 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h4><ol>
-<li>新的<code>Stream</code>数据类型<ul>
+    <content><![CDATA[<h4 id="新特性"><a class="markdownIt-Anchor" href="#新特性"></a> 新特性</h4><ol>
+<li>新的<code>Stream</code>数据类型</li>
+</ol><ul>
 <li>本质：抽象日志</li>
 <li>时间数据流</li>
-</ul>
-</li>
+</ul><ol start="2">
 <li>模块API：<code>Timers and Cluster API</code></li>
 <li><code>RDB</code>现在存储<code>LFU</code>和<code>LRU</code>信息</li>
 <li>集群管理器从<code>Ruby</code>移植到<code>C</code>代码</li>
@@ -282,8 +311,14 @@
 <li>内存统计报告</li>
 <li>子命令都有一个<code>help</code>子命令</li>
 </ol><a id="more"></a>
-<h4 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h4><ol>
-<li>基本命令<ul>
+
+
+
+<h4 id="命令行"><a class="markdownIt-Anchor" href="#命令行"></a> 命令行</h4>
+<ol>
+<li>基本命令</li>
+</ol>
+<ul>
 <li><code>redis-server /etc/redis/redis.conf</code> 启动</li>
 <li><code>redis-cli shutdown</code></li>
 <li><code>flushall</code> 清空<code>redis</code></li>
@@ -295,43 +330,41 @@
 <li><code>memory usage &lt;key&gt;</code> 键值所占内存</li>
 <li></li>
 </ul>
-</li>
+<h4 id="配置项redisconf"><a class="markdownIt-Anchor" href="#配置项redisconf"></a> 配置项<code>redis.conf</code></h4>
+<ol>
+<li>运行</li>
 </ol>
-<h4 id="配置项redis-conf"><a href="#配置项redis-conf" class="headerlink" title="配置项redis.conf"></a>配置项<code>redis.conf</code></h4><ol>
-<li><p>运行 </p>
 <ul>
 <li><code>daemonize no/yes</code> 后台守护进程</li>
 <li><code>protected-mode no/yes</code> 增强安全</li>
 <li><code>pidfile /var/run/redis_6379.pid</code> 以守护进程运行时的pid文件</li>
 <li><code>logfile &quot;/log_path&quot;</code> 日志文件</li>
 </ul>
-</li>
-<li><p><code>RDB</code> 持久化</p>
+<ol start="2">
+<li><code>RDB</code> 持久化</li>
+</ol>
 <ul>
 <li><code>dbfilename dump.db</code> 、<code>dir ./</code>: <code>RDB</code>持久化的文件名称及存放位置</li>
 </ul>
-</li>
-</ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">save 900 1 <span class="comment"># 900秒内1个key发生变化</span></span><br><span class="line">save 300 10 <span class="comment"># 300秒内10个key发生变化</span></span><br><span class="line">save 60 10000 <span class="comment"># 60秒内10000个key发生变化</span></span><br></pre></td></tr></table></figure>
-
 <ol start="3">
 <li><code>AOF</code> 持久化（重启时优先读取）</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">appendfsync always <span class="comment"># 只要key发生就会发持久化</span></span><br><span class="line">appendfsnc everysec <span class="comment"># 每秒持久化一次</span></span><br><span class="line">appendfsync no <span class="comment"># 不存储</span></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><code>oppendonly yes/no</code> </li>
+<li><code>oppendonly yes/no</code></li>
 <li><code>appendfilename &quot;appendonly.aof&quot;</code>、<code>dir ./</code></li>
 </ul>
 <ol start="4">
-<li><code>cluster</code> 集群<ul>
+<li><code>cluster</code> 集群</li>
+</ol>
+<ul>
 <li><code>cluster-enabled yes/no</code> 集群开关</li>
 <li><code>cluster-config-file nodes-6379.conf</code> 集群配置文件（系统自动维护，记录节点、状态、持久化参数等）</li>
 <li><code>cluster-node-timeout 15000</code> 主节点试连的最大时间，如果超过此时间则副节点会自动升升级为主节点</li>
 </ul>
-</li>
-</ol>
-<h4 id="stream数据类型"><a href="#stream数据类型" class="headerlink" title="stream数据类型"></a><code>stream</code>数据类型</h4><ul>
+<h4 id="stream数据类型"><a class="markdownIt-Anchor" href="#stream数据类型"></a> <code>stream</code>数据类型</h4>
+<ul>
 <li>数据流向：从左向右，<code>消费组</code>进行读取</li>
 <li>创建<code>stream</code></li>
 </ul>
@@ -340,59 +373,52 @@
 <li>ID:毫秒的<code>unix</code>时间戳-<code>sequence</code>（同一毫秒的序列号）组成</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建demo</span></span><br><span class="line">XADD flag * key value <span class="comment">#ID默认时返回值为：时间戳+序列号（从0开始）</span></span><br><span class="line">XADD flag 0-1 key value <span class="comment">#ID自定义时返回值为自定义的ID</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>返回<code>stream</code>中元素的个数</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XLEN &lt;key&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>删除一个ID</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XDEL &lt;key&gt; ID</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>从一个或多个<code>stream</code>读取数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XREAD [COUNT &lt;count&gt;] [BLOCK &lt;milliseconds&gt;] STREAMS &lt;key&gt; &lt;ID&gt; <span class="comment"># BLOCK 0 永远阻塞、&lt;key&gt; $ 获取最新的数据</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>查看给定<code>ID</code>范围内的<code>stream</code>数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XRNGE &lt;key&gt; &lt;start&gt; &lt;end&gt; [COUNT &lt;count&gt;] <span class="comment"># `+`最大ID、`-`最小ID</span></span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>消费组</p>
+<li>
+<p>消费组</p>
 <ul>
 <li>创建消费组</li>
 </ul>
 </li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XGROUP CREATE &lt;key&gt; &lt;groupname&gt; &lt;ID&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>从消费组中读取数据</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">XREADGROUP GROUP &lt;groupname&gt; [COUNT &lt;count&gt;] [BLOCK &lt;milliseconds&gt;] STREAMS &lt;key&gt; &lt;ID&gt; <span class="comment"># ID为`&gt;`读取最新消息、&lt;ID&gt;之后的数据</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="搭建集群"><a href="#搭建集群" class="headerlink" title="搭建集群"></a>搭建集群</h4><h4 id="Sorted-Set命令"><a href="#Sorted-Set命令" class="headerlink" title="Sorted Set命令"></a><code>Sorted Set</code>命令</h4><ul>
+<h4 id="搭建集群"><a class="markdownIt-Anchor" href="#搭建集群"></a> 搭建集群</h4>
+<h4 id="sorted-set命令"><a class="markdownIt-Anchor" href="#sorted-set命令"></a> <code>Sorted Set</code>命令</h4>
+<ul>
 <li><code>ZPOPMAX</code> 删除集合中分值最高的元素</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">ZPOPMAX &lt;key&gt; [count]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>ZPOPMIN</code> 删除集合分值最低的元素</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">ZPOPMIN &lt;key&gt; [count]</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>BZPOPMAX</code> ZPOPMAX的阻塞版</li>
 <li><code>BZPOPMIX</code> ZPOPMIN的阻塞版</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">BZPOPMAX &lt;key ...&gt; &lt;timeout&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="碎片整理和内存报告"><a href="#碎片整理和内存报告" class="headerlink" title="碎片整理和内存报告"></a>碎片整理和内存报告</h4><figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vi /etc/redis/redis.conf</span></span><br></pre></td></tr></table></figure>
-
+<h4 id="碎片整理和内存报告"><a class="markdownIt-Anchor" href="#碎片整理和内存报告"></a> 碎片整理和内存报告</h4>
+<figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vi /etc/redis/redis.conf</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>activedefrag yes|no</code> 启动碎片整理程序</li>
 <li><code>active-defrg-ignore-bytes 100mb</code> 当内存小于100m时可以忽略</li>
@@ -400,7 +426,6 @@
 <li><code>info memory</code> 查看内存使用情况</li>
 </ul>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">&gt; info memory</span><br><span class="line"></span><br><span class="line">used_memory_human:?m <span class="comment">#实际内存占用</span></span><br><span class="line">used_memory_rss_human:?m <span class="comment">#系统分配内存</span></span><br><span class="line">mem_fragmentation_ratio: ? <span class="comment">#内存使用率</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">&gt; MEMORY STATS</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
@@ -421,24 +446,18 @@
 
 
 
-
-
 <ol start="3">
-<li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file. </li>
+<li>to get tcl-tk 8.6 to work with the pyenv install of python, you must edit the python-build script file.</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line">$ vi ~/.pyenv/plugins/python-build/bin/python-build</span><br></pre></td></tr></table></figure>
-
 <p>Once you have the script file open, search for:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
 <p>and replace with:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">$CONFIGURE_OPTS</span> <span class="string">--with-tcltk-includes='-I/usr/local/opt/tcl-tk/include'</span> <span class="string">--with-tcltk-libs='-L/usr/local/opt/tcl-tk/lib</span> <span class="string">-ltcl8.6</span> <span class="string">-ltk8.6'</span> <span class="string">$&#123;!PACKAGE_CONFIGURE_OPTS&#125;</span> <span class="string">"$&#123;!PACKAGE_CONFIGURE_OPTS_ARRAY&#125;"</span> <span class="string">||</span> <span class="string">return</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
 <ol start="4">
 <li>install Python 3.8.0 in pyenv</li>
 </ol>
 <figure class="highlight zsh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$pyenv</span> install 3.8.0</span><br></pre></td></tr></table></figure>
-
 <ol start="5">
 <li>Test your tcl-tk installation with</li>
 </ol>

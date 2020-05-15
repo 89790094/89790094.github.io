@@ -214,6 +214,95 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://89790094.github.io/2019/11/04/%E5%A0%86%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95%EF%BC%9Aheapq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="@liudong">
+      <meta itemprop="description" content="CentOS MacOS Python PHP Nodejs Go Redis MongoDB Mysql Nginx AI&ML Elasticsearch">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一亩三分">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/04/%E5%A0%86%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95%EF%BC%9Aheapq/" class="post-title-link" itemprop="url">堆队列算法：heapq</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-04 21:38:33 / 修改时间：21:42:51" itemprop="dateCreated datePublished" datetime="2019-11-04T21:38:33+08:00">2019-11-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="堆队列算法heapq"><a class="markdownIt-Anchor" href="#堆队列算法heapq"></a> 堆队列算法:heapq</h4><ul>
+<li><code>import headq</code></li>
+<li>要创建堆，请使用已初始化的列表<code>[]</code></li>
+</ul><h5 id="方法"><a class="markdownIt-Anchor" href="#方法"></a> 方法</h5><ul>
+<li><code>heapq.heappush(&lt;heap&gt;,&lt;item&gt;)</code> 将值项推送到堆上，保持堆不变</li>
+<li><code>heapq.heappop(&lt;heap&gt;)</code> 弹出并返回堆中的最小项，保持堆不变，如果堆为空，<code>IndexError</code>则引发</li>
+<li><code>heapq.heappushpop(&lt;heap&gt;,&lt;item&gt;)</code> 在堆上推送项目，然后弹出并返回堆中的最小项目</li>
+<li><code>heapq.heapify(&lt;list)</code> 在线性时间内将列表转换为堆</li>
+<li><code>heapq.heapreplace(&lt;heap&gt;,&lt;item&gt;)</code> 弹出并返回堆中的最小项，并同时推送新项，堆大小不会改变，如果堆为空，<code>IndexError</code>则引发,注意：返回的值可能大于添加的项目</li>
+<li><code>heapq.merge（&lt;*iterables&gt;，key = None，reverse = False ）</code> 将多个已排序的输入合并为单个排序的输出</li>
+<li><code>heapq.nlargest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最大元素</li>
+<li><code>heapq.nsmallest（n，iterable，key = None ）</code>  返回一个列表，其中包含iterable定义的数据集中的n个最小元素</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/04/%E5%A0%86%E9%98%9F%E5%88%97%E7%AE%97%E6%B3%95%EF%BC%9Aheapq/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://89790094.github.io/2019/11/04/Redis5%E6%89%8B%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -264,12 +353,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h4 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h4><ol>
-<li>新的<code>Stream</code>数据类型<ul>
+          <h4 id="新特性"><a class="markdownIt-Anchor" href="#新特性"></a> 新特性</h4><ol>
+<li>新的<code>Stream</code>数据类型</li>
+</ol><ul>
 <li>本质：抽象日志</li>
 <li>时间数据流</li>
-</ul>
-</li>
+</ul><ol start="2">
 <li>模块API：<code>Timers and Cluster API</code></li>
 <li><code>RDB</code>现在存储<code>LFU</code>和<code>LRU</code>信息</li>
 <li>集群管理器从<code>Ruby</code>移植到<code>C</code>代码</li>
@@ -434,20 +523,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
